@@ -37,7 +37,7 @@ public class GUICalculator extends JFrame {
     private boolean startNewInput = true;
 
     public GUICalculator() {
-        setTitle("GUICalculator");
+        setTitle("Domingo Calculator (GUI)");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         GradientPanel contentPanel = new GradientPanel();
@@ -231,7 +231,7 @@ public class GUICalculator extends JFrame {
                     return;
             }
 
-            txtDisplay.setText(formatResult(result));
+            txtDisplay.setText(CalculatorUtils.format(result));
             firstNumber = result;
             currentOperator = "";
             startNewInput = true;
@@ -243,12 +243,6 @@ public class GUICalculator extends JFrame {
         }
     }
 
-    private String formatResult(double value) {
-        if (value == (long) value) {
-            return String.valueOf((long) value);
-        }
-        return String.valueOf(value);
-    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
