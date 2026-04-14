@@ -37,7 +37,7 @@ public class GUICalculator extends JFrame {
     private boolean startNewInput = true;
 
     public GUICalculator() {
-        setTitle("GUICalculator");
+        setTitle("Domingo Calculator (GUI)");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         GradientPanel contentPanel = new GradientPanel();
