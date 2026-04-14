@@ -47,7 +47,7 @@ public class Main {
             }
 
             try {
-                double result;
+                double result = 0;
                 switch (operator) {
                     case "+":
                         result = engine.add(firstNumber, secondNumber);
@@ -61,9 +61,6 @@ public class Main {
                     case "/":
                         result = engine.divide(firstNumber, secondNumber);
                         break;
-                    default:
-                        System.out.println("Unknown operator.");
-                        continue;
                 }
                 System.out.println("Result: " + formatResult(result));
             } catch (ArithmeticException e) {
