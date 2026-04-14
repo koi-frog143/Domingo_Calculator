@@ -58,9 +58,12 @@ public class Main {
                     case "*":
                         result = engine.multiply(firstNumber, secondNumber);
                         break;
-                    default:
+                    case "/":
                         result = engine.divide(firstNumber, secondNumber);
                         break;
+                    default:
+                        System.out.println("Unknown operator.");
+                        continue;
                 }
                 System.out.println("Result: " + formatResult(result));
             } catch (ArithmeticException e) {
