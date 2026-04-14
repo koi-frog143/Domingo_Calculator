@@ -19,6 +19,24 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
+/**
+ * The main graphical user interface for the calculator.
+ *
+ * <p><b>OOP – Inheritance:</b> Extends {@link javax.swing.JFrame} so that this
+ * class <em>is-a</em> window and inherits all window management behaviour
+ * (title bar, close button, layout management, etc.) without reimplementing it.
+ *
+ * <p><b>OOP – Encapsulation:</b> All UI state ({@code firstNumber},
+ * {@code currentOperator}, {@code startNewInput}) and helper methods
+ * ({@code appendDigit}, {@code computeResult}, etc.) are kept {@code private}.
+ * Outside code interacts with the window only through the public API inherited
+ * from {@code JFrame}.
+ *
+ * <p><b>OOP – Composition:</b> Rather than extending {@link CalculationEngine}
+ * itself, {@code GUICalculator} holds a {@code CalculationEngine} instance as a
+ * field.  This is the "has-a" (composition) relationship: the GUI <em>uses</em>
+ * the engine without being coupled to its internal structure.
+ */
 public class GUICalculator extends JFrame {
     private static final Color BACKGROUND_TOP = new Color(42, 47, 67);
     private static final Color BACKGROUND_BOTTOM = new Color(26, 31, 49);
@@ -257,6 +275,16 @@ public class GUICalculator extends JFrame {
         });
     }
 
+    /**
+     * A {@link javax.swing.JPanel} subclass that paints a vertical gradient
+     * background.
+     *
+     * <p><b>OOP – Inheritance &amp; Polymorphism:</b> Overrides
+     * {@link javax.swing.JPanel#paintComponent(Graphics)} so the Swing
+     * framework calls this custom paint logic automatically whenever the panel
+     * needs to be redrawn, without the caller knowing anything about this
+     * class.
+     */
     private static class GradientPanel extends JPanel {
         @Override
         protected void paintComponent(Graphics graphics) {
