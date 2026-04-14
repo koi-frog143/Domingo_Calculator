@@ -1,24 +1,24 @@
 public class CalculationEngine extends CalculationBase implements CalculatorOperations {
     @Override
-    public double add(double a, double b) {
-        return normalizeZero(a + b);
+    public double add(double num1, double num2) {
+        return normalizeZero(num1 + num2);
     }
 
     @Override
-    public double subtract(double a, double b) {
-        return normalizeZero(a - b);
+    public double subtract(double num1, double num2) {
+        return normalizeZero(num1 - num2);
     }
 
     @Override
-    public double multiply(double a, double b) {
-        return normalizeZero(a * b);
+    public double multiply(double num1, double num2) {
+        return normalizeZero(num1 * num2);
     }
 
     @Override
-    public double divide(double a, double b) {
-        if (b == 0) {
+    public double divide(double num1, double num2) {
+        if (num2 == 0) {
             throw new ArithmeticException("Cannot divide by zero");
         }
-        return normalizeZero(a / b);
+        return normalizeZero(num1 / num2);
     }
 }
