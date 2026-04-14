@@ -47,22 +47,8 @@ public class Main {
             }
 
             try {
-                double result = 0;
-                switch (operator) {
-                    case "+":
-                        result = engine.add(firstNumber, secondNumber);
-                        break;
-                    case "-":
-                        result = engine.subtract(firstNumber, secondNumber);
-                        break;
-                    case "*":
-                        result = engine.multiply(firstNumber, secondNumber);
-                        break;
-                    case "/":
-                        result = engine.divide(firstNumber, secondNumber);
-                        break;
-                }
-                System.out.println("Result: " + formatResult(result));
+                perform(engine, firstNumber, operator, secondNumber);
+                System.out.println("Result: " + CalculatorUtils.format(engine.getLastResult()));
             } catch (ArithmeticException e) {
                 System.out.println("Error: " + e.getMessage());
             }
@@ -74,10 +60,20 @@ public class Main {
         scanner.close();
     }
 
-    private static String formatResult(double value) {
-        if (value == (long) value) {
-            return String.valueOf((long) value);
+    private static void perform(CalculationEngine engine, double a, String operator, double b) {
+        switch (operator) {
+            case "+":
+                engine.add(a, b);
+                break;
+            case "-":
+                engine.subtract(a, b);
+                break;
+            case "*":
+                engine.multiply(a, b);
+                break;
+            case "/":
+                engine.divide(a, b);
+                break;
         }
-        return String.valueOf(value);
     }
 }
