@@ -231,7 +231,7 @@ public class GUICalculator extends JFrame {
                     return;
             }
 
-            txtDisplay.setText(CalculatorUtils.format(result));
+            txtDisplay.setText(CalculationEngine.format(result));
             firstNumber = result;
             currentOperator = "";
             startNewInput = true;
