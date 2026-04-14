@@ -3,9 +3,6 @@ public class CalculatorUtils {
     }
 
     public static String format(double value) {
-        if (value == (long) value) {
-            return String.valueOf((long) value);
-        }
-        return String.valueOf(value);
+        return String.format("%.2f", value);
     }
 }
